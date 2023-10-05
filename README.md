@@ -196,59 +196,34 @@ merge_asw1<- merge_aswh %>%
   mutate(Activity_level= ordered(Activity_level, levels=c("Very Active","Lightly Active","Fairly Active","Sedentary")))
 ```
 
+![Activity level distribution classified by minutes](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/e6029fdd-b2d1-4e04-809b-cf8487edb404)
 
-![aclevdis-1](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/7fe31a16-ed49-4343-ac65-8d34c7516a3e)
 
 
 
 The data reveals that sedentary time occupies over 80% of the recorded total activity time, indicating that individuals spend the majority of their waking hours in a seated or lying position. Conversely, active time accounts for less than 20% of the total awake time.
 
-**Sedentary weekly distribution**
 
-```{r se week, echo=FALSE}
-ggplot(data=merge_asw1, aes(x=Activity_level, y = minutes, fill = Activity_level))+
-  geom_bar(stat="identity") + 
-  theme(axis.title.x = element_blank(),axis.text.x = element_blank(),axis.ticks.x = element_blank()) +
-  facet_wrap(~weekday, nrow=1)+
-  scale_fill_brewer(palette ="Accent")+
-  labs(title ="Sedentary minutes per weekday", y ="Minutes", x="")
-```
-The bar graph shows that user spent LESS time in sedentary minutes on Saturday, compare to other days.
+![Sedentary minutes per weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/08614dd7-82ac-4e67-a84c-77e6521e62a1)
 
-**Activity level and Distance**
 
-```{r acdistance, echo=FALSE}
-ggplot(data=merge_asw1,aes(x=minutes, y=total_distance)) +
-  geom_point(color="#B2182B", size=0.5, na.rm=TRUE) +
-  geom_smooth( color="yellow", linewidth=0.6, method = 'loess' ,formula = 'y ~ x', na.rm=TRUE) +
-  facet_wrap(~Activity_level, nrow=1, ncol=4, scales="free_x" )+
-  labs(title="Activity time & Distance", y="Total Distance", x="Minutes",)
-```
+The bar graph shows that users spent LESS time in sedentary minutes on Saturday, compared to other days.
 
-The chart depicts a positive correlation between active minutes and total distance, which diminishes as very active minutes surpass 150. Additionally, there is an initial positive correlation between active minutes and distance, which transforms into a negative correlation with increased sedentary minutes. To summarize, individuals with **more active minutes tend to cover greater daily distances**, whereas increased inactivity leads to shorter daily distances.
 
-**Activity level and Calories burnt**
+![Activity time   Distance](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/8095d9ad-3a93-46ae-b6a2-11da3caa7b1c)
 
-```{r accal, echo=FALSE}
-ggplot(data=merge_asw1,aes(x=minutes, y=calories)) +
-  geom_point(color="#B2182B", size=0.5) +
-  geom_smooth( color="yellow", linewidth=0.6, method = 'loess' ,formula = 'y ~ x') +
-  facet_wrap(~Activity_level, nrow=1, ncol=4, scales="free_x" )+
-  labs(title="Activity level & Calories burnt", y="Calories", x="Minutes")
-```
+
+The chart depicts a positive correlation between active minutes and total distance, which diminishes as very active minutes surpass 150. Additionally, an initial positive correlation exists between active minutes and distance, which transforms into a negative correlation with increased sedentary minutes. To summarize, individuals with **more active minutes tend to cover greater daily distances**, whereas increased inactivity leads to shorter daily distances.
+
+
+![Activity level   Calories burnt](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/8742a276-022b-43b5-9914-dec767d1ab94)
+
 
 The visualization illustrates a strong connection between the `Very Active` level and the number of calories burned. Furthermore, the chart
 showcases a pattern characterized by an initial positive correlation, succeeded by a negative correlation as sedentary minutes increase. This means that as sedentary minutes rise, the calorie burn decreases after an initial increase. Therefore, ***individuals who engage in very active activities tend to burn more calories per day, and as their inactivity time increases, their daily calorie expenditure decreases***.
 
-#### Activity level and Sleep quality
 
-```{r acsleep, echo=FALSE}
-ggplot(data=merge_asw1,aes(x=minutes, y=total_minutes_asleep)) +
-  geom_point(color="#B2182B", size=0.5, na.rm=TRUE) +
-  geom_smooth( color="yellow", linewidth=0.6, method = 'loess' ,formula = 'y ~ x', na.rm=TRUE) +
-  facet_wrap(~Activity_level, nrow=1, ncol=4, scales="free_x" )+
-  labs(title="Activity time & Sleep quality", y="Total minutes asleep", x="Minutes",)
-```
+![Activity time   Sleep quality](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/94d52e59-19a0-4591-bf7c-2ecda42d1405)
 
 The chart represent an inverse correlation between inactivity, specifically the "Sedentary" level and the duration of time spent asleep, **as the number of minutes spent being inactive increases, the amount of time spent asleep in bed tends to decrease**. After 50 minutes of physical activity, we observe the following trends in relation to sleep quality and other active level:
 
@@ -261,11 +236,7 @@ The chart represent an inverse correlation between inactivity, specifically the 
 
 **Hourly activities**
 
-```{r hour, echo=FALSE}
-ggplot(data=hourly_step, aes(x=hour, y=step_total, fill=hour))+
-  geom_bar(stat="identity")+
-  labs(title="Hourly Steps", y="Total Steps", x="")
-```
+![Hourly Steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/ae4a68d9-37d9-4d6c-9c83-432a3ff399a9)
 
 We can figure out from the chart that the period from 5PM to 7PM, the users take the most steps. 
 
@@ -287,20 +258,8 @@ merge_asw2 <- merge_asw1 %>%
   mutate(Level_active= ordered(Level_active, levels=c("Very Active","Lightly Active","Fairly Active","Sedentary")))
 ```
 
-```{r usdis, echo=FALSE}
-distri4 <- merge_asw2 %>% 
-  count(Level_active) %>%
-  mutate(percent = paste0(round(100*n/nrow(merge_asw2),2)," %")) 
 
-ggplot(data=distri4, aes(x="", y=percent, fill=Level_active)) +
-  geom_col() +
-  geom_text(aes(label = percent),position = position_stack(vjust = 0.4),color="#543005") +
-  coord_polar(theta="y") +
-  scale_fill_brewer(palette ="Accent")+
-  theme_void()+
-  labs(title="Activity level distribution classified by steps")
-
-```
+![activity level distribution classified by steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/cddea0c3-19d4-4310-a3f0-d6d01d09f28a)
 
 With classification based on total daily steps, our user type are focused mostly on "Very Active" group and "Sedentary" group. This insight would give the marketing team a hint for their target audience in marketing strategy. 
 
