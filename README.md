@@ -257,6 +257,7 @@ merge_asw2 <- merge_asw1 %>%
                                 total_steps > 9999 ~ "Very Active"))%>%
   mutate(Level_active= ordered(Level_active, levels=c("Very Active","Lightly Active","Fairly Active","Sedentary")))
 ```
+![Activity level distribution classified by steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/be7c9794-dacb-4e12-8852-c64ec4b0f849)
 
 
 ![activity level distribution classified by steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/cddea0c3-19d4-4310-a3f0-d6d01d09f28a)
