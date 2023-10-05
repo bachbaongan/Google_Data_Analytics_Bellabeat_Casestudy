@@ -150,7 +150,7 @@ sum(duplicated(merge_asw))
 n_distinct(merge_asw)
 ```
 
-## Step 4 & 5: ANALYZE & SHARE 
+## Step 4: ANALYZE  
 
 #### The Statistical summary of datasets
 
@@ -277,6 +277,9 @@ Therefore, we should issue an alert to the user when their step count and sleep 
 
 These charts provide a clear illustration that both the Very Active and Lightly Active segments lead to the highest calorie burn. This highlights the positive correlation between the number of daily steps and calorie expenditure, indicating that increasing daily step count can lead to higher calorie burn.
 Besides, we can also figure out the user tends to exhibit higher levels of activity on **Tuesday and Saturday**, as evidenced by their increased step count and calorie expenditure on these particular days.
+
+## Step 5: SHARE
+[Bellabeat Data Analysis Dashboard](https://public.tableau.com/app/profile/clara.bach/viz/BellabeatCaseStudy_16964524098930/Dashboard1)
 
 ## STEP 6: ACT
 
