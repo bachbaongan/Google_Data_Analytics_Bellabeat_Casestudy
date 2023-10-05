@@ -1,7 +1,6 @@
 # Case Study: Bellabeat Fitness Data Analysis
 **Author: Clara Bach**
 
-
 **Date: August 09, 2023**
 
 [Tableau Dashboard](https://public.tableau.com/app/profile/clara.bach/viz/BellabeatCaseStudy_16964524098930/Dashboard1)
@@ -196,22 +195,22 @@ merge_asw1<- merge_aswh %>%
   mutate(Activity_level= ordered(Activity_level, levels=c("Very Active","Lightly Active","Fairly Active","Sedentary")))
 ```
 
-![Activity level distribution classified by minutes](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/e6029fdd-b2d1-4e04-809b-cf8487edb404)
 
+
+![Activity level distribution classified by minutes](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/09a2e34e-d28a-4266-9281-ca33fbc14822)
 
 
 
 The data reveals that sedentary time occupies over 80% of the recorded total activity time, indicating that individuals spend the majority of their waking hours in a seated or lying position. Conversely, active time accounts for less than 20% of the total awake time.
 
 
-![Sedentary minutes per weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/08614dd7-82ac-4e67-a84c-77e6521e62a1)
-
+![Sedentary minutes per weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/cb7a2969-3917-47da-86cb-7e63a5f6926e)
 
 The bar graph shows that users spent LESS time in sedentary minutes on Saturday, compared to other days.
 
 
-![Activity time   Distance](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/8095d9ad-3a93-46ae-b6a2-11da3caa7b1c)
 
+![Activity time   Distance](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/45f83e4b-9867-45c9-8d62-57d5879855c7)
 
 The chart depicts a positive correlation between active minutes and total distance, which diminishes as very active minutes surpass 150. Additionally, an initial positive correlation exists between active minutes and distance, which transforms into a negative correlation with increased sedentary minutes. To summarize, individuals with **more active minutes tend to cover greater daily distances**, whereas increased inactivity leads to shorter daily distances.
 
@@ -257,49 +256,23 @@ merge_asw2 <- merge_asw1 %>%
                                 total_steps > 9999 ~ "Very Active"))%>%
   mutate(Level_active= ordered(Level_active, levels=c("Very Active","Lightly Active","Fairly Active","Sedentary")))
 ```
-![Activity level distribution classified by steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/be7c9794-dacb-4e12-8852-c64ec4b0f849)
 
-
-![activity level distribution classified by steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/cddea0c3-19d4-4310-a3f0-d6d01d09f28a)
+![Activity level distribution classified by steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/fc2ae118-7137-4587-bd20-637b2e4d282d)
 
 With classification based on total daily steps, our user type are focused mostly on "Very Active" group and "Sedentary" group. This insight would give the marketing team a hint for their target audience in marketing strategy. 
 
 
-```{r userday, echo=FALSE, message=FALSE, warning=FALSE}
-ggplot(data=activity, aes(x=weekday, y=total_steps, fill=weekday)) +
-  geom_bar(stat="identity") +
-  theme(legend.position="none")+
-  labs(title="Total steps per Weekday", x="", y="Total Steps")
-```
+![Total steps per Weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/811798c7-99d3-44b4-bf25-7ab9c8524100)
 
+![Steps   Distance](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/73ae4bb6-83d0-4ce3-8ed5-d6793aaaf078)
 
-**Steps and Distance**
-
-```{r stepdis22, echo=FALSE}
-ggplot(data=merge_asw2,aes(x=total_steps, y=total_distance)) +
-  geom_point(color="#B2182B", size=0.2, na.rm=TRUE) +
-  geom_smooth( color="yellow", linewidth=0.6, method = 'loess' ,formula = 'y ~ x', na.rm=TRUE) +
-  labs(title="Steps & Distance", y="Total distance", x="Total steps",)
-```
 
 
 Now we can observe the highly relationship between the Distance and Steps, **meaning the more steps user can made the more distance is covered**.
 
-**Steps and Sleep quality per Weekday**
 
-```{r stepsleep, echo=FALSE, warning=FALSE}
-merge_asw2 %>% group_by(weekday) %>%
-  summarise(across(c(total_steps, total_minutes_asleep), mean, na.rm=TRUE)) %>%
-  ggplot() +
-  geom_bar(aes(x=weekday,y=total_steps, fill=total_steps>8000), stat='identity',labels=NULL, width = 0.8) +
-  geom_text(aes(label=round(total_steps,digits=0), x=weekday,y=total_steps), position = position_stack(1.035), colour="#4D4D4D", size=4, fontface = "bold")+
-  geom_line(aes(x=weekday,y=10*total_minutes_asleep), stat='identity', group=1, na.rm=TRUE, color="#D6604D", linewidth=1.15) +
-  geom_text(aes(label=round(total_minutes_asleep,digits=0), x=weekday,y=10*total_minutes_asleep), position = position_stack(vjust = 1.075), colour='#B2182B', size=4, fontface="bold")+
-  scale_y_continuous(sec.axis=sec_axis(~.*0.1,name = "Average Minutes Sleep"))+
-  scale_fill_manual(aes(x=weekday,y=total_steps), values = c("#BABABA","#F4A582"))+
-  theme(legend.position="none")+
-  labs(title="Average Steps & Minutes Sleep per Weekday", y="Average Steps", x=NULL)
-```
+![Average Steps   Minutes Sleep per Weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/6a849f7c-4681-44fe-b034-85388fd782d6)
+
 
 According to the chart, we can figure out that:
 
@@ -309,31 +282,14 @@ Therefore, we should issue an alert to the user when their step count and sleep 
 
 #### Analazy Calories
 
-```{r calnweekday, echo=FALSE}
-merge_asw2 %>% group_by(weekday) %>%
-  summarise(avg_cal=mean(calories, na.rm=TRUE)) %>%
-  ggplot(aes(x=reorder(weekday, -avg_cal),y=avg_cal, fill=reorder(weekday, -avg_cal))) +
-  geom_bar(stat='identity', width = 0.8) + theme(legend.position="none") +
-  geom_text(aes(label=round(avg_cal,digits=0)), position = position_stack(0.95), colour="#FDDBC7", size=4, fontface = "bold")+
-  scale_fill_manual(values = rev(RColorBrewer::brewer.pal(9,"Oranges")))+
-  labs(title="Average Calories Burnt per Weekday", y="Calories", x=NULL)
-```
+
+![Average Calories Burnt per Weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/3c512488-6dff-4510-bc18-df3ca0becf26)
 
 
-```{r stepdis1, echo=FALSE}
-ggplot(data=merge_asw2,aes(x=total_steps, y=calories)) +
-  geom_point(color="#B2182B", size=0.2, na.rm=TRUE) +
-  geom_smooth( color="yellow", linewidth=0.6, method = 'loess' ,formula = 'y ~ x', na.rm=TRUE) +
-  labs(title="Steps & Calories", y="Calories", x="Total steps",)
-```
+![Steps   Calories](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/c23ac591-967c-4c7d-b0b5-df06e53f86c8)
+![Calories burnt by User Type](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/8179c31b-4fae-442b-9d3c-54c60be0e1ae)
 
 
-```{r stepcal, echo=FALSE}
-ggplot(merge_asw2, aes(x=Level_active, y=calories, fill=Level_active),fig(30,4)) +
-    geom_boxplot()+
-    scale_fill_brewer(palette ="Reds")+
-    labs(title= " Calories burnt by User Type", x ="Activity Level", y= "Calories")
-```
 
 These charts provide a clear illustration that both the Very Active and Lightly Active segments lead to the highest calorie burn. This highlights the positive correlation between the number of daily steps and calorie expenditure, indicating that increasing daily step count can lead to higher calorie burn.
 Besides, we can also figure out the user tends to exhibit higher levels of activity on **Tuesday and Saturday**, as evidenced by their increased step count and calorie expenditure on these particular days.
