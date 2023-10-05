@@ -154,7 +154,7 @@ n_distinct(merge_asw)
 
 #### The Statistical summary of datasets
 
-<img width="639" alt="Screenshot 2023-10-04 at 6 01 00 PM" src="https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/26d60178-43a3-415c-a65b-96d4c1f57c01">
+<img width="639" alt="Summary" src="https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/e87ecc67-d48f-4e26-8b04-0bb6ff514534">
 
 **Insights from the summary:**
 
@@ -179,34 +179,32 @@ merge_asw1<- merge_aswh %>%
   mutate(Activity_level= ordered(Activity_level, levels=c("Very Active","Lightly Active","Fairly Active","Sedentary")))
 ```
 
-
-
-![Activity level distribution classified by minutes](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/09a2e34e-d28a-4266-9281-ca33fbc14822)
+![Activity level distribution classified by minutes](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/b0b50548-c23d-44b7-bccb-b98a21486c6d)
 
 
 
 The data reveals that sedentary time occupies over 80% of the recorded total activity time, indicating that individuals spend the majority of their waking hours in a seated or lying position. Conversely, active time accounts for less than 20% of the total awake time.
 
+![Sedentary minutes per weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/b1f03f87-4961-428c-ab31-a86917463b2d)
 
-![Sedentary minutes per weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/cb7a2969-3917-47da-86cb-7e63a5f6926e)
+
 
 The bar graph shows that users spent LESS time in sedentary minutes on Saturday, compared to other days.
 
+![Activity time   Distance](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/a9eaf1b9-adb2-4148-93e7-c53560cef155)
 
 
-![Activity time   Distance](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/45f83e4b-9867-45c9-8d62-57d5879855c7)
 
 The chart depicts a positive correlation between active minutes and total distance, which diminishes as very active minutes surpass 150. Additionally, an initial positive correlation exists between active minutes and distance, which transforms into a negative correlation with increased sedentary minutes. To summarize, individuals with **more active minutes tend to cover greater daily distances**, whereas increased inactivity leads to shorter daily distances.
+![Activity level   Calories burnt](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/a80bd39a-c2bc-43bd-8011-91b3acd9068f)
 
-
-![Activity level   Calories burnt](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/8742a276-022b-43b5-9914-dec767d1ab94)
 
 
 The visualization illustrates a strong connection between the `Very Active` level and the number of calories burned. Furthermore, the chart
 showcases a pattern characterized by an initial positive correlation, succeeded by a negative correlation as sedentary minutes increase. This means that as sedentary minutes rise, the calorie burn decreases after an initial increase. Therefore, ***individuals who engage in very active activities tend to burn more calories per day, and as their inactivity time increases, their daily calorie expenditure decreases***.
+![Activity time   Sleep quality](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/46bddf85-08d2-41ac-bd1f-2bea43bbf00e)
 
 
-![Activity time   Sleep quality](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/94d52e59-19a0-4591-bf7c-2ecda42d1405)
 
 The chart represent an inverse correlation between inactivity, specifically the "Sedentary" level and the duration of time spent asleep, **as the number of minutes spent being inactive increases, the amount of time spent asleep in bed tends to decrease**. After 50 minutes of physical activity, we observe the following trends in relation to sleep quality and other active level:
 
@@ -240,22 +238,20 @@ merge_asw2 <- merge_asw1 %>%
                                 total_steps > 9999 ~ "Very Active"))%>%
   mutate(Level_active= ordered(Level_active, levels=c("Very Active","Lightly Active","Fairly Active","Sedentary")))
 ```
+![Activity level distribution classified by steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/be02259a-a661-4694-b21c-cae4183f3cb3)
 
-![Activity level distribution classified by steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/fc2ae118-7137-4587-bd20-637b2e4d282d)
 
 With classification based on total daily steps, our user type are focused mostly on "Very Active" group and "Sedentary" group. This insight would give the marketing team a hint for their target audience in marketing strategy. 
 
+![Total steps per Weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/c39be2fd-2b50-4264-9cef-470e0ee89ab2)
 
-![Total steps per Weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/811798c7-99d3-44b4-bf25-7ab9c8524100)
-
-![Steps   Distance](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/73ae4bb6-83d0-4ce3-8ed5-d6793aaaf078)
+![Steps   Distance](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/6d578c6f-0a5b-475b-afa3-41506c34c023)
 
 
 
 Now we can observe the highly relationship between the Distance and Steps, **meaning the more steps user can made the more distance is covered**.
 
-
-![Average Steps   Minutes Sleep per Weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/6a849f7c-4681-44fe-b034-85388fd782d6)
+![Average Steps   Minutes Sleep per Weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/e474eafe-7160-4c9a-816f-cf83cc81e3ce)
 
 
 According to the chart, we can figure out that:
@@ -266,12 +262,12 @@ Therefore, we should issue an alert to the user when their step count and sleep 
 
 #### Analazy Calories
 
+![Average Calories Burnt per Weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/b8e7a8eb-2f2b-49e2-9634-c1da3308cf34)
 
-![Average Calories Burnt per Weekday](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/3c512488-6dff-4510-bc18-df3ca0becf26)
 
+![Steps   Calories](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/40205427-dbee-4f7e-a38b-52f6160f2fa7)
 
-![Steps   Calories](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/c23ac591-967c-4c7d-b0b5-df06e53f86c8)
-![Calories burnt by User Type](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/8179c31b-4fae-442b-9d3c-54c60be0e1ae)
+![Calories burnt by User Type](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/6ad00f42-4fb1-4070-9223-35c267030b6b)
 
 
 
