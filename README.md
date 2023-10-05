@@ -216,7 +216,8 @@ The chart represent an inverse correlation between inactivity, specifically the 
 #### Analyze Steps
 
 **Hourly activities**
-![Hourly Steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/7f6370a0-a459-4e91-bf4a-6f5df928c3fb)
+
+![Hourly Steps](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/91fa863e-330a-4671-b016-19266623a261)
 
 We can figure out from the chart that the period from 5PM to 7PM, the users take the most steps. 
 
