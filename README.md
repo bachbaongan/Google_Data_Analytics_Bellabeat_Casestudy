@@ -153,23 +153,7 @@ n_distinct(merge_asw)
 ## Step 4 & 5: ANALYZE & SHARE 
 
 #### The Statistical summary of datasets
-```{r summary}
-#Steps and Calories
-merge_asw %>%
-  select(total_steps, total_distance,calories) %>%
-  summary()
 
-# Activity level
-merge_asw %>%
-  select(very_active_minutes, lightly_active_minutes, fairly_active_minutes, sedentary_minutes) %>%
-  summary()
-
-# Sleep
-merge_asw %>%
-  select(total_minutes_asleep, total_time_in_bed, total_sleep_records) %>%
-  summary()
-
-```
 <img width="639" alt="Screenshot 2023-10-04 at 6 01 00 PM" src="https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/assets/144385168/26d60178-43a3-415c-a65b-96d4c1f57c01">
 
 **Insights from the summary:**
