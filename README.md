@@ -11,7 +11,7 @@
  
 With the expectation to become a larger player in the global smart device market, Urška Sršen, Cofounder and Sando Mur, Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help them to unlock new growth opportunities for the company. The insights from the finding will then hep guide marketing strategy for the company. 
 
-This project will follow the Data Analysis Processes: **Ask, Prepare,Process, Analyze, Share and Act.**
+This project will follow the Data Analysis Processes: **[Ask](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-1-ask), [Prepare](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-2-prepare),[Process](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-3-process), [Analyze](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-4-analyze), [Share](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-5-share) and [Act](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-6-act).**
 
 ## STEP 1: ASK
 
