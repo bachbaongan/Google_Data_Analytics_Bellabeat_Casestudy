@@ -7,9 +7,9 @@
 
 ## Introduction
 
-**Bellabeat** is a high-tech company that manufactures health-focused smart products for women, including Bellabeat application, Leaf wellness tracker, Time wellness watch, Spring water bottle and Bellabeat memberships. By colleting data on avtivity, sleep, stress and reproductive health, Bellabeat aim to empower women with knowledge about their own health and habits.
+**Bellabeat** is a high-tech company that manufactures health-focused smart products for women, including the Bellabeat application, Leaf wellness tracker, Time wellness watch, Spring water bottle and Bellabeat memberships. By collecting data on activity, sleep, stress and reproductive health, Bellabeat aims to empower women with knowledge about their health and habits.
  
-With the expectation to become a larger player in the global smart device market, Urška Sršen, Cofounder and Sando Mur, Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help them to unlock new growth opportunities for the company. The insights from the finding will then hep guide marketing strategy for the company. 
+With the expectation to become a larger player in the global smart device market, Urška Sršen, co-founder and Sando Mur, Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help them to unlock new growth opportunities for the company. The insights from the findings will then help guide marketing strategy for the company. 
 
 This project will follow the Data Analysis Processes: **[Ask](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-1-ask), [Prepare](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-2-prepare),[Process](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-3-process), [Analyze](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-4-analyze), [Share](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-5-share) and [Act](https://github.com/bachbaongan/Google_Data_Analytics_Bellabeat_Casestudy/blob/main/README.md#step-6-act).**
 
@@ -17,11 +17,11 @@ This project will follow the Data Analysis Processes: **[Ask](https://github.com
 
 #### Business task:
 
-Analyzing smart device usage to gain insight into how consumers usenon-Bellabeat smart devices and suggesting suitable data-driven marketing strategy for Bellabeat by answering these question:
+Analyzing smart device usage to gain insight into how consumers use non-Bellabeat smart devices and suggesting suitable data-driven marketing strategy for Bellabeat by answering these questions:
 
   1.  Identify trends in smart device usage.
   2.  Apply insights to Bellabeat customers.
-  3.  Describe how these trends identified help influence Bellabeat marketing strategy
+  3.  Describe how these trends identified help influence Bellabeat's marketing strategy
 
 #### Stakeholders:
 
@@ -40,10 +40,10 @@ Analyzing smart device usage to gain insight into how consumers usenon-Bellabeat
 #### The Credibility & Integrity of the data: The data follow the ***ROCCC Analysis***: 
 
   - Reliability: ***LOW*** --- There were only 30 individuals involved in this survey whose gender is unknown.
-  - Originality: ***LOW*** --- Data was collected via third-party survey by Amazon Mechanical Turk.
-  - Comprehensive: ***MEDIUM*** --- Dataset contains multiple fields ondaily activity intensity, daily steps taken, calories used, daily sleep time, and weight record for business task requirements.
-  - Current: ***LOW*** --- Data is 8 years old and coverd a short period of April - May 2016. The period is so shortand might be not represented for the whole year activities.
-  - Cited: ***HIGH*** --- This dataset is under CCO: public domain, made available by Mobius stored in Kaggle.
+  - Originality: ***LOW*** --- Data was collected via a third-party survey by Amazon Mechanical Turk.
+  - Comprehensive: ***MEDIUM*** --- Dataset contains multiple fields on daily activity intensity, daily steps taken, calories used, daily sleep time, and weight record for business task requirements.
+  - Current: ***LOW*** --- Data is 8 years old and covered a short period of April - May 2016. The period is shortand might not be represented for the year activities.
+  - Cited: ***HIGH*** --- This dataset is under CCO: public domain, made available by Mobius and stored in Kaggle.
   
 #### Limitation of Data Set: 
 
@@ -69,7 +69,7 @@ library(tidyverse)
 library(ggplot2)
 ....
 ```
-#### Prepare the data and combine them in one data framme if needed
+#### Prepare the data and combine them in one data frame if needed
 **Set the working directory**
 **Import data**
 ```{r import, warning=FALSE}
@@ -78,7 +78,7 @@ sleep_day <- read_csv("sleepDay_merged.csv")
 hourly_step <- read.csv("hourlySteps_merged.csv")
 ```
 
-**Inspect data to see if there are any error**
+**Inspect data to see if there are any errors**
 ```{r inspect}
 str(activity)
 str(sleep_day)
@@ -107,7 +107,7 @@ n_distinct(activity$Id)
 n_distinct(sleep_day$Id)
 n_distinct(hourly_step$Id)
 ```
-With the expected 30 user participating in the survey, but have 3 extra from `activity`and 6 less from the `sleep_day` table. 
+With the expected 30 users participating in the survey, but have 3 extra from `activity` and 6 less from the `sleep_day` table. 
 
 **Clean and rename columns**
 We should clean and format the column names using lowercase to ensure they use the same syntax format.
@@ -118,8 +118,8 @@ hourly_step <-clean_names(hourly_step)
 ```
 **Transform data type**
 
-  - After checking the date, we figure out the date/time columns are formatted as CHR not as a date format. Therefore, we will convert them as_datetime format and separate into date and time columns.
-  - Then add a column for the **weekday** into `activity` data frame and order from Monday to Sunday for further analysis and plot
+  - After checking the date, we figured out the date/time columns are formatted as CHR, not as a date format. Therefore, we will convert them into `datetime` format and separate them into date and time columns.
+  - Then add a column for the **weekday** into the `activity` data frame and order from Monday to Sunday for further analysis and plot
 
 ```{r datetime}
 activity <- activity %>%
